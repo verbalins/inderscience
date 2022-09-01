@@ -1,1 +1,17 @@
 .DS_Store
+*.sty
+*.cls
+*.pdf
+*.acn 
+*.acr 
+*.alg 
+*.aux 
+*.bbl 
+*.run.xml 
+*.log 
+*.xdy 
+*.tex 
+*.lot 
+*.lof
+_book/
+.quarto/

@@ -1,0 +1,29 @@
+$-- Implements the frontmatter, title page, and abstract.
+$--
+$-- %%%% TODO %%%%%
+$-- Customize is needed, otherwise remove this partials to use Quarto default one
+$-- %%%%%%%%%%%%%%%%
+
+$if(abstract)$
+\begin{abstract}
+$abstract$
+\end{abstract}
+$endif$
+
+$if(keywords)$
+\KEYWORD{$for(keywords/allbutlast)$$keywords$; $endfor$
+    $for(keywords/last)$$keywords$$endfor$.}
+$endif$
+
+$if(citation)$
+\REF{to this paper should be made as follows: $citation$}
+$endif$
+
+$if(journal.biography)$
+\begin{bio}
+$for(journal.biography)$
+$journal.biography$
+
+$endfor$
+\end{bio}
+$endif$

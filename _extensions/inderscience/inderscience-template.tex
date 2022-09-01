@@ -1,0 +1,155 @@
+\PassOptionsToPackage{unicode$for(hyperrefoptions)$,$hyperrefoptions$$endfor$}{hyperref}
+$if(colorlinks)$
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+$endif$
+$doc-class.tex()$
+$--for(header-includes)$
+$--header-includes$
+$--endfor$
+
+\usepackage{stfloats}
+\usepackage{mathrsfs}
+
+$if(natbib)$
+\usepackage[$natbiboptions$]{natbib}
+\bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
+$endif$
+$if(biblatex)$
+\usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
+$for(bibliography)$
+\addbibresource{$bibliography$}
+$endfor$
+$endif$
+$if(nocite-ids)$
+\nocite{$for(nocite-ids)$$it$$sep$, $endfor$}
+$endif$
+%
+%
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+%
+\hypersetup{
+$if(title-meta)$
+  pdftitle={$title-meta$},
+$endif$
+$if(author-meta)$
+  pdfauthor={$author-meta$},
+$endif$
+$if(lang)$
+  pdflang={$lang$},
+$endif$
+$if(subject)$
+  pdfsubject={$subject$},
+$endif$
+$if(keywords)$
+  pdfkeywords={$for(keywords)$$keywords$$sep$, $endfor$},
+$endif$
+$if(colorlinks)$
+  colorlinks=true,
+  linkcolor={$if(linkcolor)$$linkcolor$$else$Maroon$endif$},
+  filecolor={$if(filecolor)$$filecolor$$else$Maroon$endif$},
+  citecolor={$if(citecolor)$$citecolor$$else$Blue$endif$},
+  urlcolor={$if(urlcolor)$$urlcolor$$else$Blue$endif$},
+$else$
+$if(boxlinks)$
+$else$
+  hidelinks,
+$endif$
+$endif$
+  pdfcreator={LaTeX via pandoc}}
+%
+\def\newblock{\hskip .11em plus .33em minus .07em}
+%
+\theoremstyle{TH}{
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}[lemma]{Theorem}
+\newtheorem{corrolary}[lemma]{Corrolary}
+\newtheorem{conjecture}[lemma]{Conjecture}
+\newtheorem{proposition}[lemma]{Proposition}
+\newtheorem{claim}[lemma]{Claim}
+\newtheorem{stheorem}[lemma]{Wrong Theorem}
+\newtheorem{algorithm}{Algorithm}
+}
+%
+\theoremstyle{THrm}{
+\newtheorem{definition}{Definition}[section]
+\newtheorem{question}{Question}[section]
+\newtheorem{remark}{Remark}
+\newtheorem{scheme}{Scheme}
+}
+%
+\theoremstyle{THhit}{
+\newtheorem{case}{Case}[section]
+}
+%
+\makeatletter
+\def\theequation{\arabic{equation}}
+
+$if(journal.name)$
+\JOURNALNAME{\TEN{\it $journal.name$, Vol. \theVOL, No. \theISSUE, \thePUBYEAR}\hfill\thepage}%
+$endif$
+
+\def\BottomCatch{%
+\vskip -10pt
+\thispagestyle{empty}%
+\begin{table}[b]%
+\NINE\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcr@{}}%
+\\[-12pt]
+Copyright \copyright\ 20xx Inderscience Enterprises Ltd. & &%
+\end{tabular*}%
+\vskip -30pt%
+%%\vskip -35pt%
+\end{table}%
+} \makeatother
+
+%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%
+\setcounter{page}{1}
+
+$if(journal.shortauthor)$
+\LRH{$journal.shortauthor$}
+$endif$
+
+$if(journal.shorttitle)$
+\RRH{$journal.shorttitle$}
+$endif$
+
+$if(journal.volume)$
+\VOL{$journal.volume$}
+$endif$
+
+$if(journal.issue)$
+\ISSUE{$journal.issue$}
+$endif$
+
+$if(journal.pubyear)$
+\PUBYEAR{$journal.pubyear$}
+$endif$
+
+\BottomCatch
+
+\CLline
+
+$title.tex()$
+
+$before-body.tex()$
+
+$for(include-before)$
+$include-before$
+$endfor$
+
+$if(title)$
+\maketitle
+$endif$
+
+$body$
+
+$before-bib.tex()$
+
+$for(include-after)$
+$include-after$
+$endfor$
+$after-body.tex()$
+\end{document}
