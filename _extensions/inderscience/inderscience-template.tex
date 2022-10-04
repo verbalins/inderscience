@@ -4,10 +4,6 @@ $if(colorlinks)$
 $endif$
 $doc-class.tex()$
 
-$for(header-includes)$
-$header-includes$
-$endfor$
-
 \usepackage{stfloats}
 \usepackage{mathrsfs}
 
@@ -60,6 +56,11 @@ $endif$
 $endif$
   pdfcreator={LaTeX via pandoc}}
 %
+
+$for(header-includes)$
+$header-includes$
+$endfor$
+
 \def\newblock{\hskip .11em plus .33em minus .07em}
 %
 \theoremstyle{TH}{
