@@ -8,25 +8,8 @@ $-- %%%%%%%%%%%%%%%%
 $if(title)$
 \title{\sf{\textbf{$title$}}}
 $endif$
-$--if(subtitle)$
-$-- \usepackage{etoolbox}
-$-- \makeatletter
-$-- \providecommand{\subtitle}[1]{% add subtitle to \maketitle
-$--   \apptocmd{\@title}{\par {\large #1 \par}}{}{}
-$-- }
-$-- \makeatother
-$--endif$
 \subtitle{}
-\author{${ by-author:_authors.tex()[\and ] }}
-$--\date{$date$}
 
-$--\authorA{\sf{Pengyuan Zheng*, Dewei Li and Yugeng Xi}}
-
-\affA{Department of Automation,\\
- Shanghai Jiao Tong University,\\
-Key Laboratory of System Control and Information Processing,\\ Ministry of Education,\\
-Shanghai 200240, China\\
-E-mail: pyzheng@sjtu.edu.cn\\
-E-mail: dwli@sjtu.edu.cn\\
-E-mail: ygxi@sjtu.edu.cn\\
-{\sf{*}}Corresponding author}
+$if(journal.authors)$
+$journal.authors$
+$endif$

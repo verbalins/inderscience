@@ -2,8 +2,9 @@
 title: "Constrained feedback RMPC for LPV systems with bounded rates of parameter variations and measurement errors"
 format:
   inderscience-pdf:
-    keep-tex: true 
-  inderscience-html: default
+    keep-tex: true
+    classoption: draft
+latex-clean: false
 author:
   - name: Pengyuan Zheng
     email: pyzheng@sjtu.edu.cn
@@ -15,7 +16,6 @@ author:
         city: Shanghai
         country: China
         postal-code: 200240
-    url: https://example.org/
     corresponding: true
   - name: Dewei Li
     email: dwli@sjtu.edu.cn
