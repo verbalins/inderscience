@@ -7,8 +7,6 @@ $doc-class.tex()$
 \usepackage{stfloats}
 \usepackage{mathrsfs}
 
-$pandoc.tex()$
-
 $if(natbib)$
 \usepackage[$natbiboptions$]{natbib}
 \bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
@@ -59,9 +57,7 @@ $endif$
   pdfcreator={LaTeX via pandoc}}
 %
 
-$for(header-includes)$
-$header-includes$
-$endfor$
+$pandoc.tex()$
 
 \def\newblock{\hskip .11em plus .33em minus .07em}
 %
