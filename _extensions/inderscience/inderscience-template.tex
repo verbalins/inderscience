@@ -3,9 +3,10 @@ $if(colorlinks)$
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 $endif$
 $doc-class.tex()$
-$--for(header-includes)$
-$--header-includes$
-$--endfor$
+
+$for(header-includes)$
+$header-includes$
+$endfor$
 
 \usepackage{stfloats}
 \usepackage{mathrsfs}

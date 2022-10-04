@@ -4,7 +4,6 @@ format:
   inderscience-pdf:
     keep-tex: true
     classoption: draft
-latex-clean: false
 author:
   - name: Pengyuan Zheng
     email: pyzheng@sjtu.edu.cn
@@ -27,6 +26,9 @@ author:
       - ref: sjtu
 abstract: |
   For Linear Parameter Varying (LPV) systems with bounded rates of parameter variations and bounded parameter measurement errors, a feedback Robust Model Predictive Control (RMPC) is designed by utilising the information on system parameters. A sequence of feedback control laws is designed based on the model with parameter-incremental uncertainty. Since the sequence of feedback control laws corresponds to the future variations of system parameters and introduces additional freedom, the control performance of RMPC can be improved. The recursive feasibility and closed-loop stability of the proposed RMPC are also proven.
+include-in-header:
+  text: |
+    %Custom packages here
 keywords: [feedback RMPC, LPV systems, bounded rates, parameter variations, measurement errors]
 journal:
     name: "Int. J. of Systems, Control and Communications"
@@ -49,7 +51,6 @@ journal:
       - Pengyuan Zheng received his BSc in Electrical Engineering and Automation from the North University of China in 2000, the PhD in Control Theory and Control Engineering from Shanghai Jiao Tong University in 2010. He is currently a postdoctoral research fellow in Shanghai Jiao Tong University. His research interests include predictive control and robust control. \vs{8} 
       - \noindent Dewei Li received his BSc in Automation from Shanghai Jiao Tong University in 1993, the PhD in Control Theory and Control Engineering from Shanghai Jiao Tong University in 2009. He is currently an Associated Professor in Shanghai Jiao Tong University. His research interests include predictive control and robust control. \vs{8} 
       - \noindent Yugeng Xi received the Dr-Ing in Automatic Control from the Technical University Munich (Germany) in 1984. Since then, he has been with the Department of Automation, Shanghai Jiao Tong University, and as a \pagebreak Professor since 1988. He has authored or co-authored five books and more than 200 academic papers. His research interests include predictive control, large scale and complex systems and intelligent robotic systems.
-reference-section-title: References
 bibliography: bibliography.bib
 citation:
   type: article-journal

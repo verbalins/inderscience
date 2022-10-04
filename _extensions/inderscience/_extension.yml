@@ -1,6 +1,6 @@
 title: Inderscience Article Template
 author: Simon Lidberg
-version: 0.1.0
+version: 0.1.5
 contributes:
   formats:
     common:
@@ -15,6 +15,7 @@ contributes:
       knitr:
         opts_chunk:
           echo: false
+      reference-section-title: References
       journal:
         name: Journal title
         volume: XX
@@ -34,7 +35,7 @@ contributes:
       biblio-style: inder.bst
       cite-method: natbib
       # Set this below (`biblio-config: false`) if your cls already load a bst file
-      biblio-config: true
+      biblio-config: false
       # Content to add in header that your format is using
       #header-includes:
       # Template
