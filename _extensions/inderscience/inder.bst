@@ -4,11 +4,11 @@
 %%
 %% The original source files were:
 %%
-%% merlin.mbs  (with options: `head,ay,alk,annote,nm-rvvc,keyxyr,dt-beg,yr-par,yrp-x,note-yr,tit-qq,qt-s,qx,bt-qq,vnum-nr,volp-com,jwdpg,pp-last,jwdvol,num-xser,doi,blk-com,pp,ed,abr,ednx,xedn,and-xcom,etal-xc,revdata,eprint,url,url-blk,bibinfo,em-it,nfss,,{}')
-%% physjour.mbs  (with options: `ay,alk,annote,nm-rvvc,keyxyr,dt-beg,yr-par,yrp-x,note-yr,tit-qq,qt-s,qx,bt-qq,vnum-nr,volp-com,jwdpg,pp-last,jwdvol,num-xser,doi,blk-com,pp,ed,abr,ednx,xedn,and-xcom,etal-xc,revdata,eprint,url,url-blk,bibinfo,em-it,nfss,,{}')
-%% geojour.mbs  (with options: `ay,alk,annote,nm-rvvc,keyxyr,dt-beg,yr-par,yrp-x,note-yr,tit-qq,qt-s,qx,bt-qq,vnum-nr,volp-com,jwdpg,pp-last,jwdvol,num-xser,doi,blk-com,pp,ed,abr,ednx,xedn,and-xcom,etal-xc,revdata,eprint,url,url-blk,bibinfo,em-it,nfss,,{}')
-%% photjour.mbs  (with options: `ay,alk,annote,nm-rvvc,keyxyr,dt-beg,yr-par,yrp-x,note-yr,tit-qq,qt-s,qx,bt-qq,vnum-nr,volp-com,jwdpg,pp-last,jwdvol,num-xser,doi,blk-com,pp,ed,abr,ednx,xedn,and-xcom,etal-xc,revdata,eprint,url,url-blk,bibinfo,em-it,nfss,,{}')
-%% merlin.mbs  (with options: `tail,ay,alk,annote,nm-rvvc,keyxyr,dt-beg,yr-par,yrp-x,note-yr,tit-qq,qt-s,qx,bt-qq,vnum-nr,volp-com,jwdpg,pp-last,jwdvol,num-xser,doi,blk-com,pp,ed,abr,ednx,xedn,and-xcom,etal-xc,revdata,eprint,url,url-blk,bibinfo,em-it,nfss,,{}')
+%% merlin.mbs  (with options: `head,ay,alk,nm-rvvc,nmlm,x5,m6,keyxyr,dt-beg,yr-par,yrp-x,note-yr,tit-qq,qt-s,qx,vnum-nr,volp-com,jwdpg,pp-last,jwdvol,num-xser,doi,edpar,bkedcap,edcap,blk-com,pp,ed,abr,ednx,xedn,and-xcom,etal-xc,revdata,eprint,url,url-blk,em-it,plntx,,{}')
+%% physjour.mbs  (with options: `ay,alk,nm-rvvc,nmlm,x5,m6,keyxyr,dt-beg,yr-par,yrp-x,note-yr,tit-qq,qt-s,qx,vnum-nr,volp-com,jwdpg,pp-last,jwdvol,num-xser,doi,edpar,bkedcap,edcap,blk-com,pp,ed,abr,ednx,xedn,and-xcom,etal-xc,revdata,eprint,url,url-blk,em-it,plntx,,{}')
+%% geojour.mbs  (with options: `ay,alk,nm-rvvc,nmlm,x5,m6,keyxyr,dt-beg,yr-par,yrp-x,note-yr,tit-qq,qt-s,qx,vnum-nr,volp-com,jwdpg,pp-last,jwdvol,num-xser,doi,edpar,bkedcap,edcap,blk-com,pp,ed,abr,ednx,xedn,and-xcom,etal-xc,revdata,eprint,url,url-blk,em-it,plntx,,{}')
+%% photjour.mbs  (with options: `ay,alk,nm-rvvc,nmlm,x5,m6,keyxyr,dt-beg,yr-par,yrp-x,note-yr,tit-qq,qt-s,qx,vnum-nr,volp-com,jwdpg,pp-last,jwdvol,num-xser,doi,edpar,bkedcap,edcap,blk-com,pp,ed,abr,ednx,xedn,and-xcom,etal-xc,revdata,eprint,url,url-blk,em-it,plntx,,{}')
+%% merlin.mbs  (with options: `tail,ay,alk,nm-rvvc,nmlm,x5,m6,keyxyr,dt-beg,yr-par,yrp-x,note-yr,tit-qq,qt-s,qx,vnum-nr,volp-com,jwdpg,pp-last,jwdvol,num-xser,doi,edpar,bkedcap,edcap,blk-com,pp,ed,abr,ednx,xedn,and-xcom,etal-xc,revdata,eprint,url,url-blk,em-it,plntx,,{}')
 %% ----------------------------------------
 %% *** International Journal of Manufacturing Research ***
 %% 
@@ -38,7 +38,6 @@
 
 ENTRY
   { address
-    annote
     archive
     author
     booktitle
@@ -115,11 +114,6 @@ FUNCTION {fin.entry}
 { add.period$
   write$
   newline$
-  annote missing$
-    { "\bibAnnoteFile{" cite$ * "}" * write$ newline$ }
-    { "\bibAnnote{" cite$ * "}{" * annote * "}" * write$ newline$
-    }
-  if$
 }
 
 FUNCTION {new.block}
@@ -185,7 +179,7 @@ FUNCTION {field.or.null}
 FUNCTION {emphasize}
 { duplicate$ empty$
     { pop$ "" }
-    { "\textit{" swap$ * "}" * }
+    { "{\it " swap$ * "\/}" * }
   if$
 }
 FUNCTION {tie.or.space.prefix}
@@ -211,10 +205,10 @@ FUNCTION {bbl.etal}
 { "et~al." }
 
 FUNCTION {bbl.editors}
-{ "eds." }
+{ "Eds." }
 
 FUNCTION {bbl.editor}
-{ "ed." }
+{ "Ed." }
 
 FUNCTION {bbl.edby}
 { "edited by" }
@@ -581,7 +575,7 @@ FUNCTION {bibinfo.check}
           swap$ pop$
         }
         { swap$
-          "\bibinfo{" swap$ * "}{" * swap$ * "}" *
+          pop$
         }
       if$
     }
@@ -599,7 +593,7 @@ FUNCTION {bibinfo.warn}
           swap$ "empty " swap$ * " in " * cite$ * warning$
         }
         { swap$
-          "\bibinfo{" swap$ * "}{" * swap$ * "}" *
+          pop$
         }
       if$
     }
@@ -641,12 +635,20 @@ FUNCTION {format.names}
   numnames 'namesleft :=
     { namesleft #0 > }
     { s nameptr
-      "{vv~}{ll}{, jj}{, ff}"
+      "{vv~}{ll}{, jj}{, f{.}.}"
       format.name$
       bibinfo bibinfo.check
       't :=
       nameptr #1 >
         {
+          nameptr #6
+          #1 + =
+          numnames #5
+          > and
+            { "others" 't :=
+              #1 'namesleft := }
+            'skip$
+          if$
           namesleft #1 >
             { ", " * t * }
             {
@@ -743,9 +745,10 @@ FUNCTION {get.bbl.editor}
 FUNCTION {format.editors}
 { editor "editor" format.names duplicate$ empty$ 'skip$
     {
-      "," *
       " " *
       get.bbl.editor
+      capitalize
+   "(" swap$ * ")" *
       *
     }
   if$
@@ -792,12 +795,6 @@ FUNCTION {format.title}
 }
 FUNCTION {end.quote.title}
 { title empty$
-    'skip$
-    { before.all 'output.state := }
-  if$
-}
-FUNCTION {end.quote.btitle}
-{ booktitle empty$
     'skip$
     { before.all 'output.state := }
   if$
@@ -1031,27 +1028,20 @@ FUNCTION {format.chapter.pages}
   if$
 }
 
-FUNCTION {bt.enquote}
-{ duplicate$ empty$ 'skip$
-  { "\enquote{" swap$ *
-    "}, " *
-  }
-  if$
-}
 FUNCTION {format.booktitle}
 {
   booktitle "booktitle" bibinfo.check
-  bt.enquote
+  emphasize
 }
 FUNCTION {format.in.ed.booktitle}
 { format.booktitle duplicate$ empty$ 'skip$
     {
       editor "editor" format.names.ed duplicate$ empty$ 'pop$
         {
-          "," *
           " " *
           get.bbl.editor
-          ", " *
+          capitalize
+          "(" swap$ * "): " *
           * swap$
           * }
       if$
@@ -1252,7 +1242,6 @@ FUNCTION {incollection}
   end.quote.title
   crossref missing$
     { format.in.ed.booktitle "booktitle" output.check
-      end.quote.btitle
       format.bvolume output
       format.number.series output
       format.chapter.pages output
@@ -1280,7 +1269,6 @@ FUNCTION {inproceedings}
   end.quote.title
   crossref missing$
     { format.in.ed.booktitle "booktitle" output.check
-      end.quote.btitle
       format.bvolume output
       format.number.series output
       publisher empty$
@@ -1541,6 +1529,14 @@ FUNCTION {sort.format.names}
       format.name$ 't :=
       nameptr #1 >
         {
+          nameptr #6
+          #1 + =
+          numnames #5
+          > and
+            { "others" 't :=
+              #1 'namesleft := }
+            'skip$
+          if$
           "   "  *
           namesleft #1 = t "others" = and
             { "zzzzz" 't := }
@@ -1709,35 +1705,27 @@ FUNCTION {begin.bib}
   if$
   "\begin{thebibliography}{" number.label int.to.str$ * "}" *
   write$ newline$
-  "\newcommand{\enquote}[1]{`#1'}"
+  "\def\enquote#1{`#1'}"
   write$ newline$
-  "\providecommand{\natexlab}[1]{#1}"
+  "\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi"
   write$ newline$
-  "\providecommand{\url}[1]{\texttt{#1}}"
+  "\expandafter\ifx\csname url\endcsname\relax"
   write$ newline$
-  "\providecommand{\urlprefix}{URL }"
+  "  \def\url#1{{\tt #1}}\fi"
+  write$ newline$
+  "\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi"
   write$ newline$
   "\expandafter\ifx\csname urlstyle\endcsname\relax"
   write$ newline$
-  "  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else"
+  "  \expandafter\ifx\csname doi\endcsname\relax"
   write$ newline$
-  "  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup \urlstyle{rm}\Url}\fi"
+  "  \def\doi#1{doi:\discretionary{}{}{}#1}\fi \else"
   write$ newline$
-  "\providecommand{\bibAnnoteFile}[1]{%"
+  "  \expandafter\ifx\csname doi\endcsname\relax"
   write$ newline$
-  "  \IfFileExists{#1}{\begin{quotation}\noindent\textsc{Key:} #1\\"
+  "  \def\doi{doi:\discretionary{}{}{}\begingroup \urlstyle{rm}\Url}\fi \fi"
   write$ newline$
-  "  \textsc{Annotation:}\ \input{#1}\end{quotation}}{}}"
-  write$ newline$
-  "\providecommand{\bibAnnote}[2]{%"
-  write$ newline$
-  "  \begin{quotation}\noindent\textsc{Key:} #1\\"
-  write$ newline$
-  "  \textsc{Annotation:}\ #2\end{quotation}}"
-  write$ newline$
-  "\providecommand{\bibinfo}[2]{#2}"
-  write$ newline$
-  "\providecommand{\eprint}[2][]{\url{#2}}"
+  "\expandafter\ifx\csname eprint\endcsname\relax\def\eprint#1{\url{#1}}\fi"
   write$ newline$
 }
 EXECUTE {begin.bib}
