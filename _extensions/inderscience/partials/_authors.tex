@@ -7,4 +7,7 @@ $-- Use it if you need to insert content at this specific place of the main Pand
 $-- Here we are using it to format the authors part of the template.
 $-- %%%%%%%%%%%%%%%
 
-$it.name.literal$$if(it.orcid)$~\orcidlink{$it.orcid$}$endif$$for(it.affiliations/first)$\\$it.name$$endfor$\\$if(it.email)$\href{mailto:$it.email$}{$it.email$}$endif$
+\authorA{\sf{$it.name.literal$$if(it.attributes.corresponding)$*$endif$}}
+\affA{$for(it.affiliations)$$if(it.department)$$it.department$,\\$endif$$it.name$,\\$it.address$,~$it.city$$if(it.country)$,~$it.country$$endif$$sep$\\and\\$endfor$
+$if(it.attributes.corresponding)$\\Email:~\href{mailto:$it.email$}{$it.email$}\\
+{\sf{*}}Corresponding author$endif$}

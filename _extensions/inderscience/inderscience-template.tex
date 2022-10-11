@@ -7,6 +7,8 @@ $doc-class.tex()$
 \usepackage{stfloats}
 \usepackage{mathrsfs}
 
+$pandoc.tex()$
+
 $if(natbib)$
 \usepackage[$natbiboptions$]{natbib}
 \bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
@@ -20,7 +22,8 @@ $endif$
 $if(nocite-ids)$
 \nocite{$for(nocite-ids)$$it$$sep$, $endfor$}
 $endif$
-%
+
+% Test here
 %
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
@@ -56,8 +59,6 @@ $endif$
 $endif$
   pdfcreator={LaTeX via pandoc}}
 %
-
-$pandoc.tex()$
 
 \def\newblock{\hskip .11em plus .33em minus .07em}
 %

@@ -23,21 +23,19 @@ contributes:
         pubyear: 20XX
         shortauthor: A. Authorson et al.
         shorttitle: Short journal title
-      pdf-engine: pdflatex
     pdf:
       # define default configuration for the pdf version of your format
       documentclass: singlecol
-      #colorlinks: true
+      colorlinks: false
       #urlcolor: red
       #fig-width: 6.5
       #fig-height: 4.5
       # This format uses a bst file with natbib
       biblio-style: inder.bst
       cite-method: natbib
+      natbiboptions: [authoryear]
       # Set this below (`biblio-config: false`) if your cls already load a bst file
       biblio-config: false
-      # Content to add in header that your format is using
-      #header-includes:
       # Template
       template: inderscience-template.tex
       template-partials:
