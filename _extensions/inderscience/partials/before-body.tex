@@ -14,12 +14,3 @@ $if(keywords)$
 \KEYWORD{$for(keywords/allbutlast)$$keywords$; $endfor$
     $for(keywords/last)$$keywords$$endfor$.}
 $endif$
-
-$if(journal.biography)$
-\begin{bio}
-$for(journal.biography)$
-$journal.biography$
-
-$endfor$
-\end{bio}
-$endif$
