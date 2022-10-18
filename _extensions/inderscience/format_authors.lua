@@ -90,19 +90,29 @@ return {
             if aff['department'] ~= nil then
               aff_name = aff_name .. pandoc.utils.stringify(aff['department']) .. ',\\\\\n'
             end
-            aff_name = aff_name .. pandoc.utils.stringify(aff['name']) .. ',\\\\\n'
             
-            local address = {}
-            if aff['address'] ~= nil then
-              table.insert(address, pandoc.utils.stringify(aff['address']))
+            if aff['url'] ~= nil then
+              aff_name = aff_name .. '\\href{' .. pandoc.utils.stringify(aff['url']) .. '}{'
+              aff_name = aff_name .. pandoc.utils.stringify(aff['name']) .. '},\\\\\n'
+            else
+              aff_name = aff_name .. pandoc.utils.stringify(aff['name']) .. ',\\\\\n'
             end
             
+            if aff['address'] ~= nil then
+              aff_name = aff_name .. pandoc.utils.stringify(aff['address']) .. ',\\\\\n'
+            end
+            
+            local address = {}
             if aff['postal-code'] ~= nil then
               table.insert(address, pandoc.utils.stringify(aff['postal-code']))
             end
             
             if aff['city'] ~= nil then
               table.insert(address, pandoc.utils.stringify(aff['city']))
+            end
+            
+            if aff['region'] ~= nil then
+              table.insert(address, pandoc.utils.stringify(aff['region']))
             end
             
             if aff['country'] ~= nil then
@@ -131,13 +141,23 @@ return {
         for i, author in pairs(authors) do
           corr = false
           if cont then
-            currAuth = currAuth .. pandoc.utils.stringify(author['name']['literal'])
+            if author['url'] ~= nil then
+              currAuth = currAuth .. '\\href{' .. pandoc.utils.stringify(author['url']) .. '}{'
+              currAuth = currAuth .. pandoc.utils.stringify(author['name']['literal']) ..'}'
+            else
+              currAuth = currAuth .. pandoc.utils.stringify(author['name']['literal'])
+            end
           else
             currAuth = currAuth .. '}}\n'
             text = text .. currAuth
             authnr = authnr + 1
             currAuth = auth_tex_table[authnr]
-            currAuth = currAuth  .. pandoc.utils.stringify(author['name']['literal'])
+            if author['url'] ~= nil then
+              currAuth = currAuth .. '\\href{' .. pandoc.utils.stringify(author['url']) .. '}{'
+              currAuth = currAuth .. pandoc.utils.stringify(author['name']['literal']) ..'}'
+            else
+              currAuth = currAuth .. pandoc.utils.stringify(author['name']['literal'])
+            end
           end
           
           if author['attributes'] ~= nil then
