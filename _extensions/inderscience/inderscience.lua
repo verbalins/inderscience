@@ -25,17 +25,6 @@ return {
               end
             end
         end
-  	  
-  	    local classoption = meta['classoption']
-  	    for _,v in pairs(classoption) do
-  	      quarto.log.debug("=== Handling classoption ===")
-          if pandoc.utils.stringify(v) == "draft" then
-            quarto.log.debug("=== Handling draft ===")
-            meta['author'] = "Author Authorsson"
-            break
-          end
-        end
-  		
         return meta
     end
 	}
