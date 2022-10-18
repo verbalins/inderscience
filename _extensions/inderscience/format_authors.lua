@@ -97,6 +97,10 @@ return {
               table.insert(address, pandoc.utils.stringify(aff['address']))
             end
             
+            if aff['postal-code'] ~= nil then
+              table.insert(address, pandoc.utils.stringify(aff['postal-code']))
+            end
+            
             if aff['city'] ~= nil then
               table.insert(address, pandoc.utils.stringify(aff['city']))
             end
