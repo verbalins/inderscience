@@ -16,19 +16,24 @@ author:
         country: China
         postal-code: 200240
     corresponding: true
+    biography: |
+      Pengyuan Zheng received his BSc in Electrical Engineering and Automation from the North University of China in 2000, the PhD in Control Theory and Control Engineering from Shanghai Jiao Tong University in 2010. He is currently a postdoctoral research fellow in Shanghai Jiao Tong University. His research interests include predictive control and robust control.
   - name: Dewei Li
     email: dwli@sjtu.edu.cn
     affiliations:
       - ref: sjtu
+    biography: |
+      Dewei Li received his BSc in Automation from Shanghai Jiao Tong University in 1993, the PhD in Control Theory and Control Engineering from Shanghai Jiao Tong University in 2009. He is currently an Associated Professor in Shanghai Jiao Tong University. His research interests include predictive control and robust control.
   - name: Yugeng Xi
     email: ygxi@sjtu.edu.cn
     affiliations:
       - ref: sjtu
+    biography: |
+      Yugeng Xi received the Dr-Ing in Automatic Control from the Technical University Munich (Germany) in 1984. Since then, he has been with the Department of Automation, Shanghai Jiao Tong University, and as a \pagebreak Professor since 1988. He has authored or co-authored five books and more than 200 academic papers. His research interests include predictive control, large scale and complex systems and intelligent robotic systems.
 abstract: |
   For Linear Parameter Varying (LPV) systems with bounded rates of parameter variations and bounded parameter measurement errors, a feedback Robust Model Predictive Control (RMPC) is designed by utilising the information on system parameters. A sequence of feedback control laws is designed based on the model with parameter-incremental uncertainty. Since the sequence of feedback control laws corresponds to the future variations of system parameters and introduces additional freedom, the control performance of RMPC can be improved. The recursive feasibility and closed-loop stability of the proposed RMPC are also proven.
 include-in-header:
-  text: |
-    %Custom packages here
+  %Custom packages here
 keywords: [feedback RMPC, LPV systems, bounded rates, parameter variations, measurement errors]
 journal:
     name: "Int. J. of Systems, Control and Communications"
@@ -47,10 +52,6 @@ journal:
       E-mail: dwli@sjtu.edu.cn\\
       E-mail: ygxi@sjtu.edu.cn\\
       {\sf{*}}Corresponding author}
-    biography:
-      - Pengyuan Zheng received his BSc in Electrical Engineering and Automation from the North University of China in 2000, the PhD in Control Theory and Control Engineering from Shanghai Jiao Tong University in 2010. He is currently a postdoctoral research fellow in Shanghai Jiao Tong University. His research interests include predictive control and robust control. \vs{8} 
-      - \noindent Dewei Li received his BSc in Automation from Shanghai Jiao Tong University in 1993, the PhD in Control Theory and Control Engineering from Shanghai Jiao Tong University in 2009. He is currently an Associated Professor in Shanghai Jiao Tong University. His research interests include predictive control and robust control. \vs{8} 
-      - \noindent Yugeng Xi received the Dr-Ing in Automatic Control from the Technical University Munich (Germany) in 1984. Since then, he has been with the Department of Automation, Shanghai Jiao Tong University, and as a \pagebreak Professor since 1988. He has authored or co-authored five books and more than 200 academic papers. His research interests include predictive control, large scale and complex systems and intelligent robotic systems.
 bibliography: bibliography.bib
 citation:
   type: article-journal
@@ -65,4 +66,4 @@ For LPV systems with independently varying parameters, \cite{park2004crl} transf
 
 In practical applications, the parameter measurement error is another issue which must be considered. Therefore, this paper considers the RMPC of LPV systems with both independently varying parameters and parameter measurement errors. In terms of the measurement errors, the error bounds are used to calculate the possible areas where the parameters could belong to in the future, and these areas can be tackled with the parameter variations together. Then the dynamic system model is converted into a sequence of future models with parameter-incremental uncertainty by referring to \cite{park2004crl}, which includes not only the time-varying parameter variations but also the measurement errors. Corresponding to the model sequence, the proposed RMPC adopts a sequence of feedback control laws, instead of open-loop control strategy. The recursive feasibility and closed-loop stability can be guaranteed. Meanwhile, since the feedback control laws are designed according to the future parameter variations, the information on the parameter variations and measurement errors can be utilised in the MPC controller and then better control performance can be expected.
 
-This paper is organised as follows: Section 2 introduces the problem and the issue about the recursive feasibility of RMPC. The feedback RMPC will be introduced with a modified model sequence with parameter-incremental uncertainties in detail in Section 3. Numerical example is given in Section 4 to verify the results proposed in this paper.\vvp{}
+This paper is organised as follows: Section 2 introduces the problem and the issue about the recursive feasibility of RMPC. The feedback RMPC will be introduced with a modified model sequence with parameter-incremental uncertainties in detail in Section 3. Numerical example is given in Section 4 to verify the results proposed in this paper.
