@@ -1,5 +1,6 @@
 local authors
 local affiliations
+local meta_vars
 local aff_table = {}
 local email_table = {}
 local biography = {}
@@ -77,12 +78,28 @@ return {
     Meta = function(meta)
       authors = meta['by-author']
       affiliations = meta['by-affiliation']
+      meta_vars = meta['classoption']
+      
+	    for _,v in pairs(meta_vars) do
+        if pandoc.utils.stringify(v) == "review" then
+          quarto.log.debug("=== Handling review in meta ===")
+          meta['journal']['shortauthor'] = ''
+        end
+	    end
+    
       return meta
     end,
     Pandoc = function(doc)
         if not quarto.doc.isFormat("latex") then
           return doc
         end
+        
+  	    for _,v in pairs(meta_vars) do
+          if pandoc.utils.stringify(v) == "review" then
+            quarto.log.debug("=== Handling review in doc ===")
+            return doc
+          end
+  	    end
         
         -- Create the affiliations table
         for i, aff in pairs(affiliations) do
@@ -143,7 +160,7 @@ return {
           if cont then
             if author['url'] ~= nil then
               currAuth = currAuth .. '\\href{' .. pandoc.utils.stringify(author['url']) .. '}{'
-              currAuth = currAuth .. pandoc.utils.stringify(author['name']['literal']) ..'}'
+              currAuth = currAuth .. pandoc.utils.stringify(author['name']['literal']) .. '}'
             else
               currAuth = currAuth .. pandoc.utils.stringify(author['name']['literal'])
             end
@@ -154,7 +171,7 @@ return {
             currAuth = auth_tex_table[authnr]
             if author['url'] ~= nil then
               currAuth = currAuth .. '\\href{' .. pandoc.utils.stringify(author['url']) .. '}{'
-              currAuth = currAuth .. pandoc.utils.stringify(author['name']['literal']) ..'}'
+              currAuth = currAuth .. pandoc.utils.stringify(author['name']['literal']) .. '}'
             else
               currAuth = currAuth .. pandoc.utils.stringify(author['name']['literal'])
             end
