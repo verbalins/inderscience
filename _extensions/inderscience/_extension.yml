@@ -5,10 +5,6 @@ contributes:
   formats:
     common:
       # define below YAML configuration common to all formats
-      filters:
-        # You can include here Lua filters from your extension format 
-        - format_authors.lua
-        - inderscience.lua
       shortcodes:
         # You can include here Lua filters defining shortcodes from your extension
         - shortcodes.lua
@@ -24,6 +20,10 @@ contributes:
         shortauthor: A. Authorson et al.
         shorttitle: Short journal title
     pdf:
+      filters:
+        # You can include here Lua filters from your extension format 
+        - format_authors.lua
+        - inderscience.lua
       # define default configuration for the pdf version of your format
       documentclass: singlecol
       classoption: [final]
